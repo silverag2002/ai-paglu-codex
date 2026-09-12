@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Atkinson_Hyperlegible, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
+import SiteChrome from "./ui/site-chrome";
 
 const bodyFont = Atkinson_Hyperlegible({
   variable: "--font-body",
@@ -29,10 +30,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var r=document.documentElement;r.dataset.palette=localStorage.getItem('ap-palette')||'glacier';r.dataset.mode=localStorage.getItem('ap-mode')||((matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');r.dataset.layout=localStorage.getItem('ap-layout')||'map'}catch(e){}})()`,
+            __html: `(function(){try{var r=document.documentElement;r.dataset.palette=localStorage.getItem('ap-palette')||'canopy';r.dataset.mode=localStorage.getItem('ap-mode')||((matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light');r.dataset.layout=localStorage.getItem('ap-layout')||'map'}catch(e){}})()`,
           }}
         />
-        {children}
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
